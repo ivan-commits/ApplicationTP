@@ -1,0 +1,10 @@
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        categorie_images:
+            uri_prefix: /images/categorie
+            upload_destination: '%kernel.project_dir%/public/images/categorie'
+        picotgramme_images:
+            uri_prefix: /images/pictogramme
+            upload_destination: '%kernel.project_dir%/public/images/pictogramme'

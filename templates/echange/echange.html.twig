@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+  {{ parent()}}
+    <link rel="stylesheet" href="{{ asset('css/echange.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="body-content">
+
+            <!--Carousel catégorie-->  
+            <div class="carousel">
+                <button class="btn" id="btn-backward-categorie"><i class="fas fa-chevron-left fa-2x"></i></button>
+                <div id="carousel-categorie" class="scroll-img">
+                    <ul id="listcategorie">
+                        
+                    </ul>
+                </div>
+                <button class="btn" id="btn-forward-categorie"><i class="fas fa-chevron-right fa-2x"></i></button>
+            </div>          
+            
+            <div class="carousel">
+                <button class="btn" id="btn-backward-picto"><i class="fas fa-chevron-left fa-2x"></i></button>
+                <div id="carousel-picto" class="scroll-img">
+                    <ul id="listpicto">
+                        
+                    </ul>
+                </div>
+                <button class="btn" id="btn-forward-picto"><i class="fas fa-chevron-right fa-2x"></i></button>
+            </div>
+            
+            <div id="carousel-drop">
+                <ul class="liste-drop">
+                    <li id="mot1" class="drop"></li>
+                    <li id="mot2" class="drop"></li>
+                    <li id="mot3" class="drop"></li>
+                    <li id="mot4" class="drop"></li>
+                    <li id="mot5" class="drop"></li>
+                    <li id="mot6" class="drop"></li>
+                </ul>
+            </div>
+    
+            <div id="phrase">
+    
+            </div>
+
+            <div id="remote">
+                    <div class="remote" id="refresh"><i class="fas fa-sync-alt fa-2x"></i></div>
+                    <div class="remote" id="lecture"> <i class="fas fa-play fa-2x"></i></div>
+                    <div class="remote" id="lectureMot"><i class="fas fa-step-forward  fa-2x"></i></div>
+            </div>
+                
+    </div>          
+</div>
+
+    </section>
+{% endblock %}
+
+{% block javascripts %}
+   
+    <script type="text/javascript"  src="https://code.jquery.com/jquery-1.8.3.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="{{ asset('js/jquery.scrollbox.js') }}"></script>
+    <script src="{{ asset('js/jquery.ui.touch-punch.js') }}"></script>
+    <script src="{{ asset('js/ajax.js') }}"></script>
+    <script src="{{ asset('js/scrollbox.js') }}"></script>
+    <script src="{{ asset('js/draganddrop.js') }}"></script>
+
+</script>
+
+{% endblock %}

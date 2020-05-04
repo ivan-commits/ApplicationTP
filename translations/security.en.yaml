@@ -1,0 +1,3 @@
+"Username could not be found.": "Email invalide"
+"Invalid credentials.": "Mot de passe invalide"
+"Invalid CSRF token." : "Vous avez déjà une session d'ouverte"

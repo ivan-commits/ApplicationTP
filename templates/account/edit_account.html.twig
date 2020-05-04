@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editer Profile{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}">
+{% endblock %}
+{% block body %}
+    <section class="jumbotron jumbotron-fluid text-center">
+        <img src="{{ asset('images/logo/TerrePlurielle.png') }}" class="d-inline-block align-top" alt="">
+        <hr>
+        <p class="lead">Modifier mon profile</p>
+    </section>
+    <section class="container mb-4 edit-profile ">
+            <div class="row d-flex justify-content-center">
+                <div class="col-9">
+                {{ form_start(form) }}
+                    <label fclass="sr-only">Enfant :</label>
+                    {{ form_row(form.surname, {'attr':{'placeholder':'Nom'}}) }}
+                    {{ form_row(form.firstName, {'attr':{'placeholder':'Prénom'}})}}
+                    {{ form_row(form.date_de_naissance, {'attr':{'placeholder':'Prénom'}})}}
+                    <label fclass="sr-only">Parents :</label>
+                    {{ form_row(form.firstname_parent1, {'attr':{'placeholder':'Nom'}}) }}
+                    {{ form_row(form.surname_parent1, {'attr':{'placeholder':'Prénom'}}) }}
+                    {{ form_row(form.firstname_parent2, {'attr':{'placeholder':'Nom'}}) }}
+                    {{ form_row(form.surname_parent2, {'attr':{'placeholder':'Prénom'}}) }}
+                    <label fclass="sr-only">Orthophoniste :</label>
+                    {{ form_row(form.firstname_orthophoniste, {'attr':{'placeholder':'Nom'}}) }}
+                    {{ form_row(form.surname_orthophoniste, {'attr':{'placeholder':'Prénom'}}) }}
+                    <label fclass="sr-only">Éducateur :</label>
+                    {{ form_row(form.firstname_educateur, {'attr':{'placeholder':'Nom'}}) }}
+                    {{ form_row(form.surname_educateur, {'attr':{'placeholder':'Prénom'}}) }}
+                    <button class="btn btn-md btn-dark btn_block" type="submit">Modifier</button>
+                {{ form_end(form) }}
+                </div>
+            </div>
+    </section>
+
+
+
+{% endblock %}

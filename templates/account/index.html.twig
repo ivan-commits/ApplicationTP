@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profile{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <section class="jumbotron jumbotron-fluid text-center">
+        <img src="{{ asset('images/logo/TerrePlurielle.png') }}" class="d-inline-block align-top" alt="">
+        <hr>
+        <p class="lead">Mon compte</p>
+    </section>
+
+    <section class="container-fluid mb-4 d-flex justify-content-center block-account">
+{% if is_granted('ROLE_USER') %}
+        <div class="card mb-3">
+            <div class="row no-gutters profile">
+                <div class="">
+                    <img src="{{ asset('images/logo/profile-icon.png') }}" class="card-img" alt="...">
+                </div>
+                <div class="">
+                <div class="card-body">
+                    <a href="{{ path('app_edit_account')}} " class="btn border-none btn-sm float-right"><i class="far fa-edit fa-2x"></i></a>  
+                    <h5 class="card-title text-uppercase ">{{ app.user.surname }} {{ app.user.firstName }}</h5>
+                    <p class="card-text"> {{ app.user.getDateDeNaissance() | date("m/d/Y")}} </p>
+                    <h5 class="card-title" >Parents: </h5>
+                    {% if app.user.getFirstNameParent1 and app.user.getSurnameParent1 %}
+                    <p class="card-text text-white">{{ app.user.getFirstNameParent1 }} {{ app.user.getSurnameParent1 }}</p>
+                    {% else %}
+                    <p class="card-text text-muted">Parent 1 - non renseigné</p>
+                    {% endif %}
+                    {% if app.user.getFirstNameParent2 and app.user.getSurnameParent2 %}
+                    <p class="card-text text-white">{{ app.user.getFirstNameParent2 }} {{ app.user.getSurnameParent2 }}</p>
+                    {% else %}
+                        <p class="card-text text-muted">Parent 2 - non renseigné</p>
+                    {% endif %}
+
+                    <h5 class="card-title">Professionnels: </h5>
+                    {% if app.user.getFirstnameEducateur and app.user.getSurnameEducateur %}
+                    <p class="card-text text-white">{{ app.user.getFirstnameEducateur }} {{ app.user.getSurnameEducateur }} - Éducateur</p>
+                    {% else %}
+                    <p class="card-text text-muted">Éducateur - non renseigné</p>
+                    {% endif %}
+                     {% if app.user.getFirstnameOrthophoniste and app.user.getSurnameOrthophoniste %}
+                    <p class="card-text text-white">{{ app.user.getFirstnameOrthophoniste }} {{ app.user.getSurnameOrthophoniste }} - Orthophoniste</p>
+                    {% else %}
+                        <p class="card-text text-muted">Orthophoniste - non renseigné</p>
+                    {% endif %}
+                </div>
+                </div>
+            </div>
+        </div>
+{% endif %}      
+
+    </section>
+
+
+
+{% endblock %}

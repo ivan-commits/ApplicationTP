@@ -1,0 +1,16 @@
+{% extends 'emails/index.html.twig' %}
+{% block body %}
+    <section class="jumbotron jumbotron-fluid text-center">
+        <h1 class="display-4">Terre Plurielle Fondation Bouygues Construction</h1>
+        <hr>
+        <p class="lead">Activer mon compte</p>
+    </section>
+<div class="container">
+    <p class="font-weight-bold">Bonjour {{ email }},</p>
+    <p>Merci pour votre inscription, pour activer votre compte cliquer sur "activer mon compte"</p>
+    <a class="btn btn-primary" href="{{ url('app_register_confirm', { 'token': token , 'username': username}) }}">Activer mon compte</a>
+    <p><small>Ce message est envoyé automatiquement, merci de ne pas y répondre.</small></p>
+</div>
+
+{% endblock %}
+

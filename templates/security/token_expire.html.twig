@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon Profile{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/account.css') }}">
+{% endblock %}
+{% block body %}
+    <section class="jumbotron jumbotron-fluid text-center">
+        <img src="{{ asset('images/logo/TerrePlurielle.png') }}" width="400" height="100" class="d-inline-block align-top" alt="">
+        <hr>
+    </section>
+    <section class="container mb-4 text-center">
+        <h3>Votre lien est expiré, pour vous connecter cliquer ici</h3>
+        <a class="btn btn-success btn-md mt-4" href="{{ path('app_register_revalidation') }}">connexion</a>
+    </section>
+
+
+
+{% endblock %}
