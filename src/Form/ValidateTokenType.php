@@ -14,7 +14,7 @@ class ValidateTokenType extends AbstractType
         $builder
             ->add('email' ,null, [
                     'attr' => [
-                       'placeholder'=>'Email',
+                       'placeholder'=>'Votre adresse mail',
                     ],
                     'label'=> false
             ]);

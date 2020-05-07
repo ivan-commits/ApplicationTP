@@ -1,59 +1,170 @@
 body,html{
-    background: rgb(65,118,135);
-    background: linear-gradient(90deg, rgba(65,118,135,1) 0%, rgba(72,115,203,1) 35%, rgba(0,212,255,1) 100%);
+    background: #F2F4F3!important;
     height: 100vh;
-    width: 100%
-}
-
-.jumbotron-fluid {
-    background: rgba(0, 0, 0, 0.288)!important;
-}
-.form-signin {
-    width: 100%;
-    max-width: 330px;
-    margin: auto;
-}
-.form-signin .checkbox {
-    font-weight: 400;
-}
-.form-signin .form-control {
-    position: relative;
-    box-sizing: border-box;
-    height: auto;
-    padding: 10px;
-    font-size: 16px;
-}
-.form-signin .form-control:focus {
-    z-index: 2;
-}
-.form-signin input{
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column
 }
 
 
-form a{
-    outline: none;
+/*
+NAVBAR
+*/
+
+.navbar-custom {
+    background-color: #080708;
+}
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color:#F2F4F3;
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+    color: rgba(255,255,255,.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+    color: #ffffff;
+}
+.navbar-custom a:hover{
+    color: rgb(150, 179, 83)
 }
 
-h1{
-    color: white;
+/*
+HEADER
+*/
+
+#header {
+    background: #233D4D;
+    margin: 0;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    flex:8;
+}
+
+#header img{
+    margin: 0 auto;
+}
+
+/*
+FORM CONNEXION
+*/
+.connexion{
+    background: #F2F4F3;
+    display: flex;
+    align-items: center;
+    flex: 30;
+    font-family: 'Jost', sans-serif;
+}
+
+.form-signin{
+    transform: translateY(-20px);
+    margin: 0 auto;
+    width: 50%;
     text-align: center;
 }
 
-.connexion{
-    border-radius: 5px;
-    padding: 30px 0;
-    background: rgba(0, 0, 0, 0.288);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.466);
+
+.title-content{
+    padding: 15px 0;
+}
+/*
+TYPO, BTN CONNEXION
+*/
+
+
+.connexion input{
+    width: 53%;
+    margin: 0 auto;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.411);
+    text-align: center;
+
 }
 
-.reActivation{
-    border-radius: 5px;
-    padding: 50px 0 40px 0;
-    background: rgba(0, 0, 0, 0.288);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.466);
+.connexion input:hover{
+    transition: 0.2s;
+    width: 55%;
+    margin: 0 auto;
 }
 
-nav{
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.466);
+.connexion input:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.377);
+    width: 52%;
 }
+
+.connexion .btn{
+    width: max-content;
+    margin: 0 auto;
+    border-radius: 25px; 
+    box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.356);  
+    background: #A9927D!important;
+    color: white;
+}
+
+.connexion .btn:focus,
+.btn:active, .btn:hover{
+    transition: 0.5s;
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+    color: white!important;
+}
+
+.connexion h1{
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.219);
+    margin-top: 15px;
+    margin-bottom: 0;
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+}
+
+.connexion p{
+    font-weight: 200;
+}
+
+.connexion a{
+    color:#A9927D;
+}
+
+.connexion a:hover{
+    color:#A9927D;
+}
+.pb-connexion small{
+    font-size: 11px;
+    color:#A9927D;
+}
+
+a:focus{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+
+.btn-secu{
+    width: 80%;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between
+}
+
+
+
+
+/*
+FOOTER
+*/
+
+footer{
+    width: 100%;
+    background: #080708;
+    text-align: center;
+    flex:1;
+    color:#F2F4F3;
+}
+

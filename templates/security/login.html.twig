@@ -1,12 +1,13 @@
 {% extends 'security/index.html.twig' %}
 {% block body %}
-    <section class="jumbotron jumbotron-fluid text-center">
+    <section id="header" class="jumbotron jumbotron-fluid text-center">
         <img src="{{ asset('images/logo/TerrePlurielle.png') }}" class="d-inline-block align-top" alt="">
     </section>
 
     <section class="container connexion">
     
         <form class="form-signin" method="post">
+
             {% if error %}
                 <div class="alert alert-danger text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
@@ -15,19 +16,32 @@
                     {{ message }}
                 </div>
             {% endfor %}
-            <h1 class="h3 mb-3 font-weight-normal">Connexion</h1>
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input type="email" name="email" value="{{ last_username }}" id="inputEmail" class="form-control" placeholder="E-mail" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control mt-4" placeholder="Mot de passe" required>
-            <input type="hidden" name="_csrf_token" id="inputPassword" class="form-control" value="{{ csrf_token('authenticate') }}">
-            <a class="d-block text-decoration-none text-center" href="{{ path('app_register_revalidation') }}"><small class="text-muted">Renvoyer un mail de confirmation</small></a>
-            <a href="{{ path('app_reset_password') }}" class="d-block text-decoration-none text-center"><small class="text-muted">Mot de passe oublié</small></a>
-            <button class="btn btn-md btn-dark btn-block mt-3 mb-4" type="submit">Connexion</button>
-            <div class="container d-flex justify-content-center">
-                <a class="btn btn-outline-light bnt-md" href="{{ path('app_register') }}">Créer un compte</a>
+
+            <div class="title-content">
+                <h1>Se connecter</h1>
+                <hr>
             </div>
+
+            <input type="email" name="email" value="{{ last_username }}" id="inputEmail" class="form-control mt-3" placeholder="E-mail" required autofocus>
+
+            
+            <input type="password" name="password" id="inputPassword" class="form-control mt-4" placeholder="Mot de passe" required>
+            
+            <input type="hidden" name="_csrf_token" id="inputPassword" class="form-control" value="{{ csrf_token('authenticate') }}">
+
+            <div class="pb-connexion">
+                <a href="{{ path('app_reset_password') }}" class="text-center"><small>Mot de passe oublié</small></a>
+                <small>  / </small>
+                <a class="text-center" href="{{ path('app_register_revalidation') }}"><small>Renvoyer un mail de confirmation</small></a>
+            </div>
+         
+            
+            <button class="btn btn-md btn-block mt-3 mb-4" type="submit">Connexion</button>
+            
+            <p>Vous n'avez pas encore de compte ? <a href="{{ path('app_register') }}">Inscrivez-vous</a></p> 
+            
         </form>
+
     </section>
 
 {% endblock %}

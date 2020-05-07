@@ -3,23 +3,32 @@
 {% block title %}Admin{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 {% endblock %}
 {% block body %}
-    <section class="jumbotron jumbotron-fluid text-center">
+    <section id="header" class="jumbotron jumbotron-fluid text-center">
         <img src="{{ asset('images/logo/TerrePlurielle.png') }}" class="d-inline-block align-top" alt="">
     </section>
 
     <section class="container admin">
 
-        <article class="row d-fex justify-content-center">
-            <h4>Interface d'administration</h4>
-        </article>
+        <article class="container-content">
 
-        <div class="row  d-flex justify-content-around mt-4">
-            <a class="btn btn-md border border-dark bg-dark text-white btn_block" href="{{ path('admin_user') }}">Gestion </br>Utilisateurs</a>
-            <a class="btn btn-md border border-dark bg-dark text-white btn_block" href="{{ path('admin_picto') }}">Gestion </br>Pictogrammes</a>
-            <a class="btn btn-md border border-dark bg-dark text-white btn_block" href="{{ path('admin_categorie') }}">Gestion </br>Catégories</a>
-        </div>
+            <div class="title-content">
+                <h1>Interface d'administration</h1>
+                <hr>
+            </div>
+
+            <div class="nav-gestion">
+                <a class="btn btn-md" href="{{ path('admin_user') }}"><p>Utilisateurs</p></a>
+                <a class="btn btn-md" href="{{ path('admin_picto') }}"><p>Pictogrammes</p></a>
+                <a class="btn btn-md" href="{{ path('admin_categorie') }}"><p>Catégorie</p></a>
+            </div>
+
+
+
+        </article>
     </section>
 {% endblock %}
 

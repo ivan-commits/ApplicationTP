@@ -1,24 +1,28 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Admin{% endblock %}
 
 {% block body %}
-    <section class="jumbotron jumbotron-fluid text-center">
+    <section id="header" class="jumbotron jumbotron-fluid text-center">
         <img src="{{ asset('images/logo/TerrePlurielle.png') }}" class="d-inline-block align-top" alt="">
     </section>
 
-    <section class="container mb-4">
+    <section class="container admin">
 
-        <article class="row d-fex justify-content-center">
-            <h4>Editer votre utilisateur</h4>
-        </article>
+        <article class="container-content edit-user">
 
-        <article>
+            <div class="title-content">
+                <h1>Editer utilisateur</h1>
+            </div>
+
+ 
             {{ form_start(form)}}
                 {{form_rest(form)}}
-                <button class="btn btn-success">editer</button>
-                <a href="{{ path('admin_user')}}" class="btn btn-dark">retour</a>
+            <div class="navbot-admin">
+                <button class="btn">editer</button>
+                <a class="btn" href="{{ path('admin_user')}}">retour</a>
+            </div>
             {{ form_end(form) }}
-        </article>
+
     </section>
 {% endblock %}

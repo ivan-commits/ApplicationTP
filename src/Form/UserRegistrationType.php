@@ -14,14 +14,10 @@ class UserRegistrationType extends AbstractType
     {
         $builder
             ->add('email')
-            ->add('firstName', null,[
-                'label'=>'Prénom'
-            ])
+            ->add('firstName')
             ->add('password',PasswordType::class)
             ->add('confirm_password',PasswordType::class)
-            ->add('surname',null,[
-                'label'=>'Nom   '
-            ])
+            ->add('surname')
         ;
     }
 

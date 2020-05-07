@@ -1,65 +1,69 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Admin{% endblock %}
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-{% endblock %}
+
 {% block body %}
-    <section class="jumbotron jumbotron-fluid text-center">
+    <section id="header" class="jumbotron jumbotron-fluid text-center">
         <img src="{{ asset('images/logo/TerrePlurielle.png') }}" class="d-inline-block align-top" alt="">
-        <hr>
-        <p class="lead text-white">Pictogrammes</p>
     </section>
 
-    <section class="container">
 
-        <div class="row d-fex justify-content-between">
-            <a class="btn btn-light btn-md float-left mb-2" href="{{ path('admin_index') }}">Retour</a>
-            <a class="btn btn-success btn-md float-right mb-2" href="{{ path('admin_picto_new') }}">Ajouter un pictogramme</a>
-        </div>
 
-        <div class="col d-fex justify-content-center pagination">
-            {{ knp_pagination_render(pictogrammes)}}
-        </div>
+    <section class="container admin user">
 
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">
-                {{ message }}
+        <article class="container-content">
+
+            <div class="title-content">
+                <h1>Gestion pictogramme</h1>
             </div>
-        {% endfor %}
 
-        <div class="table-responsive">
-            <table class="table table-hover table-striped table-dark text-center">
-                <thead>
-                    <tr class="text-uppercase">
-                        <td>Nom</td>
-                        <td>Image</td>
-                        <td>Catégorie</td>
-                        <td>Action</td>
-                    </tr>
-                </thead>
+            <div class="col d-fex justify-content-center pagination">
+                {{ knp_pagination_render(pictogrammes)}}
+            </div>
+            <div class="nav-gestion">
+                <a class="btn" href="{{ path('admin_index') }}">Retour</a>
+                <a class="btn" href="{{ path('admin_picto_new') }}">Ajouter un pictogramme</a>
+            </div>
 
-                <tbody>
-                {% for pictogramme in pictogrammes %}
-                    <tr>
-                        <td>{{ pictogramme.name }}</td>
-                        <td><img src="{{ asset('images/pictogramme/'~pictogramme.filename) }}" alt=""></td>
-                        <td class="text-uppercase"> {{ pictogramme.categorie }}</td>
-                        <td>
-                            <a href="{{ path('admin_picto_edit',{id: pictogramme.id}) }}" class="btn btn-outline-success"><i class="far fa-edit"></i></a>
-                            <form method="post" action="{{ path('admin_picto_delete',{id: pictogramme.id}) }}" style="display:inline-block"
-                            onsubmit="return confirm('Êtes vous vraiment sûr de vouloir supprimer ce pictogramme ?')">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete'~ pictogramme.id )}}">  
-                                <button class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
-                            </form>
-                        <td>
-                        <td>
-                    </tr>
-                {% endfor %}   
-                </tbody>
-            </table>
-        </div>
+
+
+            {% for message in app.flashes('success') %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% endfor %}
+
+            <article class="table-responsive">
+                <table class="table table-hover table-striped text-center">
+                    <thead>
+                        <tr>
+                            <td>Nom</td>
+                            <td>Image</td>
+                            <td>Catégorie</td>
+                            <td>Action</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for pictogramme in pictogrammes %}
+                        <tr>
+                            <td>{{ pictogramme.name }}</td>
+                            <td><img src="{{ asset('images/pictogramme/'~pictogramme.filename) }}" alt=""></td>
+                            <td> {{ pictogramme.categorie }}</td>
+                            <td>
+                                <a class="btn" href="{{ path('admin_picto_edit',{id: pictogramme.id}) }}"><i class="far fa-edit"></i></a>
+                                <form method="post" action="{{ path('admin_picto_delete',{id: pictogramme.id}) }}" style="display:inline-block"
+                                onsubmit="return confirm('Êtes vous vraiment sûr de vouloir supprimer ce pictogramme ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete'~ pictogramme.id )}}">  
+                                    <button class="btn"><i class="far fa-trash-alt"></i></button>
+                                </form>
+                            <td>
+                            <td>
+                        </tr>
+                    {% endfor %}   
+                    </tbody>
+                </table>
+        </article>
     </section>
 {% endblock %}

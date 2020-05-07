@@ -6,7 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 class ProfileType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -22,10 +22,12 @@ class ProfileType extends AbstractType
             ->add('surname_educateur',null,['label' => false])
             ->add('firstname_orthophoniste',null,['label' => false])
             ->add('surname_orthophoniste',null,['label' => false])
-            ->add('date_de_naissance',null,['label' => false],[
-                'widget' => 'single_text',
-                // this is actually the default format for single_text
+            ->add('date_de_naissance',DateType::class,[
+                'label' => false,
+                'years' => range(date('Y'), date('Y')-50),
                 'format' => 'yyyy-MM-dd',
+                'widget' => 'single_text',
+
             ]);
 
     }

@@ -1,11 +1,201 @@
-table img{
-    width: 50px;
-    height: 50px;
-    background:white;
-    border-radius:5px;
+body,html{
+    background: #F2F4F3!important;
+    height: 100vh;
+    display: flex;
+    flex-direction: column
 }
 
-.admin a{
-    padding: 50px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.466);
+h1{
+    text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.219);
+    font-weight: 300;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
 }
+
+p{
+    margin: 0!important;
+    padding: 0;
+    font-weight: 200;
+}
+
+
+/*
+NAVBAR
+*/
+
+.navbar-custom ,.navbar{
+    background-color: #080708;
+}
+/* change the brand and text color */
+.navbar-custom ,.navbar .navbar-brand,
+.navbar-custom ,.navbar .navbar-text {
+    color:#F2F4F3;
+}
+/* change the link color */
+.navbar-custom ,.navbar .navbar-nav .nav-link {
+    color:#F2F4F3;
+}
+/* change the color of active or hovered links */
+.navbar-custom ,.navbar .nav-item.active .nav-link,
+.navbar-custom ,.navbar .nav-item:hover .nav-link {
+    color:#F2F4F3;
+}
+.navbar-custom ,.navbar a:hover{
+    color: rgb(150, 179, 83)
+}
+
+/*
+HEADER
+*/
+
+#header {
+    background: #233D4D;
+    margin: 0;
+    padding: 25px 0;
+    display: flex;
+    align-items: center;
+    flex:8;
+}
+
+#header img{
+    margin: 0 auto;
+}
+
+/*
+Admin
+*/
+
+.admin{
+    background: #F2F4F3;
+    display: flex;
+    align-items: center;
+    flex: 30;
+    font-family: 'Jost', sans-serif;
+    border: 1px solid red;
+}
+
+.container-content {
+    transform: translateY(-20px);
+    margin: 20px auto;
+    width: max-content;
+    text-align: center;
+    font-size: 18px;
+    border: 1px solid red;
+}
+
+.title-content{
+    margin-bottom: 50px;
+    width: 100%
+}
+
+/*
+CONTENT
+*/
+
+.user .container-content {
+    width: 100%;
+}
+
+.edit .container-content{
+    border: 1px solid blue;
+    width: 50%;
+}
+
+/*
+TABLE
+*/
+
+td{
+    padding: 10px 0 0 0 !important;
+    margin: 0!important;
+}
+
+table button{
+    transform: translateY(-5px)
+}
+
+.admin table img{
+    width: 50px;
+    height: 50px;
+}
+
+/*
+FORM ADMIN
+*/
+
+.admin input{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.411);
+    text-align: center;
+}
+
+.admin input:hover{
+    transition: 0.2s;
+    width: 78%;
+    margin: 0 auto;
+}
+
+.admin input:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.377);
+    width: 78%;
+}
+
+
+/*
+BUTTON
+*/
+
+#edit{
+    color: green
+}
+
+#delete{
+    color: red;
+}
+.btn{
+    border: 1px solid red!important;
+}
+
+
+
+/*
+NAV-ADMIN
+*/
+
+.navbot-admin{
+    display: flex;
+    justify-content: space-around;
+}
+
+.navtob-admin{
+    margin: 20px 0;
+    transform: translateY(10px);
+}
+
+.navtob-admin a{
+    margin:0;
+}
+
+.navtob-admin{
+    margin: 180px 0;
+    transform: translateY(-20px);
+    display: flex;
+    justify-content: space-between;
+}
+
+/*
+FOOTER
+*/
+
+footer{
+    width: 100%;
+    background: #080708;
+    text-align: center;
+    flex:1;
+    color:#F2F4F3;
+}
+

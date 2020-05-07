@@ -57,21 +57,44 @@ $(function () {
 
     });
 
+    // Lecture audio de la phrase 
     $("#lecture").click(()=>{
         let vocal = $("#phrase").html();
+        if(!vocal){
+            return
+        }
+        const speech = new SpeechSynthesisUtterance();
+        speech.text = vocal;
+        speech.pitch = 1; // 0 à 2 = hauteur
+        speech.rate = 1; // 0.5 à 2 = vitesse
+        speech.volume = 0.5; // 0 à 1 = volume
+        speech.lang = 'fr-FR'; // Language
+        // Faire parler
+        speechSynthesis.speak(speech);
+    })
+   // Lecture audio mot à mot de la phrase 
+    $("#lectureMot").click((phrase)=>{
+        let vocal = $("#phrase").html();
         if(vocal){
-            alert(vocal);
-        }else{
-            console.log('phrase null')
+            return
+        }
+        vocal = vocal.split(' ');
+        for(let i = 0; i<vocal.length; i++){
+            const speech = new SpeechSynthesisUtterance();
+            speech.text = vocal[i];
+            speech.pitch = 1; // 0 à 2 = hauteur
+            speech.rate = 1; // 0.5 à 2 = vitesse
+            speech.volume = 0.5; // 0 à 1 = volume
+            speech.lang = 'fr-FR'; // Language
+            // Faire parler
+            speechSynthesis.speak(speech);
         }
       
     })
-
+    // Supprime la phrase et le picto déposés
     $("#refresh").click(()=>{
         $("#phrase").html('');
         $(".drop > li").remove();
-
-        
     })
 
 

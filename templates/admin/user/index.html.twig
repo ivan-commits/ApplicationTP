@@ -1,20 +1,24 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Admin{% endblock %}
 
 {% block body %}
-    <section class="jumbotron jumbotron-fluid text-center">
+    <section id="header" class="jumbotron jumbotron-fluid text-center">
         <img src="{{ asset('images/logo/TerrePlurielle.png') }}" class="d-inline-block align-top" alt="">
-        <hr>
-        <p class="lead text-white">Catégories</p>
     </section>
 
-    <section class="container">
+    <section class="container admin">
 
-        <div class="row d-fex justify-content-around">
-            <a class="btn btn-light btn-md float-left mb-2" href="{{ path('admin_index') }}">Retour</a>
-            <a class="btn btn-success btn-md float-right mb-2" href="{{ path('admin_user_new') }}">Ajouter un utilisateur</a>
-        </div>
+        <article class="container-content user">
+
+            <div class="title-content">
+                <h1>Gestion utilsateurs</h1>
+            </div>
+
+            <div class="navtob-admin">
+                <a class="btn btn-md" href="{{ path('admin_index') }}">Retour</a>
+                <a class="btn btn-md" href="{{ path('admin_user_new') }}">Ajouter un utilisateur</a>
+            </div>
 
         <div class="col d-fex justify-content-center pagination">
             {{ knp_pagination_render(users)}}
@@ -27,9 +31,9 @@
         {% endfor %}
 
         <div class="table-responsive">
-            <table class="table table-hover table-striped table-dark text-center">
+            <table class="table table-hover table-striped text-center">
                 <thead>
-                    <tr class="text-uppercase">
+                    <tr>
                         <td>Nom</td>
                         <td>Prenom</td>
                         <td>Email</td>
@@ -40,16 +44,16 @@
                 <tbody>
                 {% for user in users %}
                     <tr>
-                        <td class="text-uppercase">{{ user.surname }}</td>
+                        <td>{{ user.surname }}</td>
                         <td>{{ user.firstName }}</td>
                         <td>{{ user.username }}</td>
                         <td>
-                            <a href="{{ path('admin_user_edit',{id: user.id}) }}" class="btn btn-outline-success"><i class="far fa-edit"></i></a>
+                            <a id="edit" class="btn" href="{{ path('admin_user_edit',{id: user.id}) }}"><i class="far fa-edit"></i></a>
                             <form method="post" action="{{ path('admin_user_delete',{id: user.id}) }}" style="display:inline-block"
                             onsubmit="return confirm('Êtes vous vraiment sûr de vouloir supprimer cette utilisateur ?')">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token('delete'~ user.id )}}">  
-                                <button class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
+                                <button id="delete" class="btn"><i class="far fa-trash-alt"></i></button>
                             </form>
                         <td>
                     </tr>
