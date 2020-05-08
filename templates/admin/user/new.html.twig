@@ -10,17 +10,16 @@
 
     <section class="container admin add-user">
 
-        <article class="container-content">
+        <div class="title-content">
+            <h1>Ajouter un utilsateurs</h1>
+            <hr>
+        </div>
 
-            <div class="title-content">
-                <h1>Ajouter un utilsateurs</h1>
-                <hr>
-            </div>
+        <article class="container-content edit">
 
-     
             {{ form_start(form)}}
                 {{form_rest(form)}}
-                <div class="nav-admin">
+                <div class="navbot-admin">
                     <button class="btn" type="submit">créer</button>
                     <a class="btn" href="{{ path('admin_user')}}">retour</a>
                 </div>

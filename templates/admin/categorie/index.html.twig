@@ -1,65 +1,67 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Admin{% endblock %}
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
-{% endblock %}
+
 {% block body %}
-    <section class="jumbotron jumbotron-fluid text-center">
+    <section id="header" class="jumbotron jumbotron-fluid text-center">
         <img src="{{ asset('images/logo/TerrePlurielle.png') }}" class="d-inline-block align-top" alt="">
-        <hr>
-        <p class="lead text-white">Catégories</p>
     </section>
 
-    <section class="container">
+    <section class="container admin">
 
-        <div class="row d-fex justify-content-around">
-            <a class="btn btn-light btn-md float-left mb-2" href="{{ path('admin_index') }}">Retour</a>
-            <a class="btn btn-success btn-md float-right mb-2" href="{{ path('admin_categorie_new') }}">Ajouter une catégorie</a>
+        <div class="title-content">
+            <h1>Gestion des catégories</h1>
+            <hr>
         </div>
 
-        <div class="col d-fex justify-content-center pagination">
-            {{ knp_pagination_render(categories)}}
-        </div>
-        
-        {% for message in app.flashes('success') %}
+        <article class="container-content user">
+
+            <div class="block-pagination">
+                {{ knp_pagination_render(categories)}}
+            </div>
+
+            <div class="add">
+                <a class="btn" href="{{ path('admin_categorie_new') }}">Ajouter une catégorie</a>
+            </div>
+            
+            {% for message in app.flashes('success') %}
             <div class="alert alert-success">
                 {{ message }}
             </div>
-        {% endfor %}
+            {% endfor %}
 
-        <div class="table-responsive">
-            <table class="table table-hover table-striped table-dark text-center">
-                <thead>
-                    <tr class="text-uppercase">
-                        <td>Filename</td>
-                        <td>Nom</td>
-                        <td>Image</td>
-                        <td>Action</td>
-                    </tr>
-                </thead>
+            <div class="table-responsive">
+                <table class="table table-hover text-center">
+                    <thead>
+                        <tr>
+                            <td>Filename</td>
+                            <td>Nom</td>
+                            <td>Image</td>
+                            <td>Actions</td>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                {% for categorie in categories %}
-                    <tr>
-                        <td>{{ categorie.filename }}</td>
-                        <td>{{ categorie.name }}</td>
-                        <td><img src="{{ asset('images/categorie/'~categorie.filename) }}" alt=""></td>
-                        <td>
-                            <a href="{{ path('admin_categorie_edit',{id: categorie.id}) }}" class="btn btn-outline-success"><i class="far fa-edit"></i></a>
-                            <form method="post" action="{{ path('admin_categorie_delete',{id: categorie.id}) }}" style="display:inline-block"
-                            onsubmit="return confirm('Êtes vous vraiment sûr de vouloir supprimer cette categorie ?')">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token('delete'~ categorie.id )}}">  
-                                <button class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button>
-                            </form>
-                        <td>
-                    </tr>
-                    </tr>
-                {% endfor %}   
-                </tbody>
-            </table>
-        </div>
+                    <tbody>
+                    {% for categorie in categories %}
+                        <tr>
+                            <td>{{ categorie.filename }}</td>
+                            <td>{{ categorie.name }}</td>
+                            <td><img src="{{ asset('images/categorie/'~categorie.filename) }}" alt=""></td>
+                            <td>
+                                <a  id="edit" class="action" href="{{ path('admin_categorie_edit',{id: categorie.id}) }}"><i class="far fa-edit"></i></a>
+                                <form method="post" action="{{ path('admin_categorie_delete',{id: categorie.id}) }}" style="display:inline-block"
+                                onsubmit="return confirm('Êtes vous vraiment sûr de vouloir supprimer cette categorie ?')">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token('delete'~ categorie.id )}}">  
+                                    <button id="delete" class="action"><i class="far fa-trash-alt"></i></button>
+                                </form>
+                            <td>
+                        </tr>
+                        </tr>
+                    {% endfor %}   
+                    </tbody>
+                </table>
+            </div>
+        </article>
     </section>
 {% endblock %}

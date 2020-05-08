@@ -21,6 +21,7 @@ NAVBAR
 /* change the link color */
 .navbar-custom ,.navbar .navbar-nav .nav-link {
     color:#F2F4F3;
+    font-family: 'Lato', sans-serif;
 }
 /* change the color of active or hovered links */
 .navbar-custom ,.navbar .nav-item.active .nav-link,
@@ -53,20 +54,9 @@ FORM app
 */
 .app{
     background: #F2F4F3;
-    display: flex;
-    align-items: center;
     flex: 30;
     font-family: 'Jost', sans-serif;
 }
-
-.container-content {
-    transform: translateY(-20px);
-    margin: 0 auto;
-    width: 50%;
-    text-align: center;
-    font-size: 18px;
-}
-
 
 
 /*
@@ -91,7 +81,6 @@ TYPO, BTN app
     -webkit-appearance:none;
     box-shadow: none !important;
     color: white !important;
-
 }
 
 /*
@@ -100,7 +89,8 @@ PAGE HOME
 
 
 .app .title-content{
-    padding: 0;
+    padding: 10px 0;
+    text-align: center
 }
 
 .app h1{
@@ -115,28 +105,34 @@ PAGE HOME
     font-weight: 200;
 }
 
+.home .container-content{
+    margin: 0 auto;
+    width: 80%
+}
+
 
 /*
 ACCOUNT
 */
-
 
 .account .container-content{
     margin: 20px auto;
     width: 100%;
     font-size: 18px;
 }
-
-.block-profile{
-    margin: 5px auto;
-    width: max-content;
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: start
 }
 
+.block-profile{
+    margin: 5px 0;
+}
 
 .block-profile p,h5,h1{
     display: inline;
-    margin: 0;
-    
+    margin: 0; 
 }
 
 .title-content i{

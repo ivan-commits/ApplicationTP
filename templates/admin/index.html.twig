@@ -13,22 +13,21 @@
 
     <section class="container admin">
 
+        <div class="title-content">
+            <h1>Interface d'administration</h1>
+            <hr>
+        </div>
+
         <article class="container-content">
 
-            <div class="title-content">
-                <h1>Interface d'administration</h1>
-                <hr>
-            </div>
-
             <div class="nav-gestion">
-                <a class="btn btn-md" href="{{ path('admin_user') }}"><p>Utilisateurs</p></a>
-                <a class="btn btn-md" href="{{ path('admin_picto') }}"><p>Pictogrammes</p></a>
-                <a class="btn btn-md" href="{{ path('admin_categorie') }}"><p>Catégorie</p></a>
+                <a class="btn" href="{{ path('admin_user') }}"><p>Utilisateurs</p></a>
+                <a class="btn" href="{{ path('admin_picto') }}"><p>Pictogrammes</p></a>
+                <a class="btn" href="{{ path('admin_categorie') }}"><p>Catégories</p></a>
             </div>
-
-
 
         </article>
+
     </section>
 {% endblock %}
 

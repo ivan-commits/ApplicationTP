@@ -68,24 +68,32 @@ Admin
 .admin{
     background: #F2F4F3;
     display: flex;
-    align-items: center;
+    flex-direction: column; 
     flex: 30;
     font-family: 'Jost', sans-serif;
-    border: 1px solid red;
 }
 
-.container-content {
-    transform: translateY(-20px);
-    margin: 20px auto;
-    width: max-content;
-    text-align: center;
+.admin .container-content{
+    width: 80%;
+    margin: 0 auto;
     font-size: 18px;
-    border: 1px solid red;
+    height: 100%;
 }
+.admin .user{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 
 .title-content{
-    margin-bottom: 50px;
+    margin: 30px auto;
     width: 100%
+}
+
+.title-content h1{
+    text-align: center;
+
 }
 
 /*
@@ -97,7 +105,6 @@ CONTENT
 }
 
 .edit .container-content{
-    border: 1px solid blue;
     width: 50%;
 }
 
@@ -105,14 +112,25 @@ CONTENT
 TABLE
 */
 
+.table-responsive{
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.233); 
+    border-radius: 5px;
+    margin-bottom: 20px
+}
 td{
-    padding: 10px 0 0 0 !important;
+    padding:5px 0!important;
     margin: 0!important;
+    vertical-align: 0!important;
+    font-family: 'Lato', sans-serif;
+
 }
 
-table button{
-    transform: translateY(-5px)
+tbody td {
+    font-weight: 100;
+    font-size: 16px;
+    width: max-content;
 }
+
 
 .admin table img{
     width: 50px;
@@ -144,48 +162,120 @@ FORM ADMIN
     width: 78%;
 }
 
+.admin .edit form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+.admin .edit input{
+    margin: 0 auto;
+}
+
+.edit .form-inline,.form-check{
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.edit .form-check-input{
+    width: 20px!important;
+    margin: 0 auto;
+}
+
+.edit .form-check label{
+    margin-top: 10px;
+}
+
 
 /*
 BUTTON
 */
 
-#edit{
-    color: green
+#edit i{
+    color: green;
 }
 
-#delete{
+.admin table .action{
+    height: max-content;
+    background: none;
     color: red;
-}
-.btn{
-    border: 1px solid red!important;
+    padding: 0;
+    border: none;
+    margin: 0 10px;
 }
 
 
+.admin .btn{
+    width: max-content;
+    margin: 0 auto;
+    border-radius: 25px; 
+    box-shadow: 2px 1px 2px rgba(0, 0, 0, 0.356);  
+    background: #A9927D!important;
+    color: white;
+}
+
+.admin .btn:focus,
+.btn:active, .btn:hover{
+    transition: 0.5s;
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+    color: white!important;
+}
+
+.amdin .action:focus,
+.action:active, .action:hover{
+    transition: 0.5s;
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+.admin .add{
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-end
+}
+
+.admin .add .btn{
+    margin: 0 ;
+}
 
 /*
 NAV-ADMIN
 */
+.admin .block-pagination{
+    width: 100%;
+}
+
+.admin .pagination{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 .navbot-admin{
     display: flex;
     justify-content: space-around;
+    margin-bottom: 20px;
 }
-
-.navtob-admin{
-    margin: 20px 0;
-    transform: translateY(10px);
-}
-
-.navtob-admin a{
-    margin:0;
-}
-
-.navtob-admin{
-    margin: 180px 0;
-    transform: translateY(-20px);
+.nav-gestion{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 }
+
+.nav-gestion .btn{
+    margin: 20px auto;
+}
+
+/*
+PAGINATION
+*/
+
 
 /*
 FOOTER

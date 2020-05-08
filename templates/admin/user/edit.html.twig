@@ -8,21 +8,21 @@
     </section>
 
     <section class="container admin">
+    
+        <div class="title-content">
+            <h1>Editer utilisateur</h1>
+        </div>
 
-        <article class="container-content edit-user">
+        <article class="container-content edit">
 
-            <div class="title-content">
-                <h1>Editer utilisateur</h1>
-            </div>
-
- 
             {{ form_start(form)}}
                 {{form_rest(form)}}
             <div class="navbot-admin">
-                <button class="btn">editer</button>
-                <a class="btn" href="{{ path('admin_user')}}">retour</a>
+                <button class="btn">Modifier</button>
+                <a class="btn" href="{{ path('admin_user')}}">Annuler</a>
             </div>
             {{ form_end(form) }}
-
+        </article>
     </section>
+    
 {% endblock %}
