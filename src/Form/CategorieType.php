@@ -15,7 +15,8 @@ class CategorieType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('imageFile',FileType::class)
+            ->add('place')
+            ->add('imageFile',FileType::class,['required'=>false])
         ;
     }
 

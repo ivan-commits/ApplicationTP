@@ -15,14 +15,10 @@
 
         <article class="container-content user">
             <div class="add">
-                <a class="btn" href="{{ path('admin_user_new') }}">Ajouter un utilisateur</a>
+            {{ knp_pagination_render(users)}}
+                <a class="action" href="{{ path('admin_user_new') }}"><i class="fas fa-plus-square"></i> créer</a>
             </div>
            
-
-            <div >
-                {{ knp_pagination_render(users)}}
-            </div>
-
         {% for message in app.flashes('success') %}
             <div class="alert alert-success">
                 {{ message }}

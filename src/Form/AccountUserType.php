@@ -7,12 +7,12 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
-
-class UserType extends AbstractType
+class AccountUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+
             ->add('firstName',null,[
                 'attr' => [
                     'placeholder'=>'Prénom',
@@ -28,7 +28,6 @@ class UserType extends AbstractType
                     'years' => range(date('Y'), date('Y')-50),
                     'format' => 'yyyy-MM-dd',
                     'widget' => 'single_text',
-    
                 ])
             ->add('firstname_parent1',null,[
                 'attr' => [
@@ -69,9 +68,8 @@ class UserType extends AbstractType
                 'attr' => [
                     'placeholder'=>'Nom orthophoniste',
                 ],
-                'label' => false])
-            ->add('enabled',null,['label' => 'Compte activé']);
-        
+                'label' => false]);
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

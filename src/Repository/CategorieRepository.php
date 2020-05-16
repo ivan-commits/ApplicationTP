@@ -22,12 +22,31 @@ class CategorieRepository extends ServiceEntityRepository
 
 
     /**
-     * @return Query
-     */
+    * @return Query
+    */
     public function findAllQuery() : Query
     {
         return $this->createQueryBuilder('p')
             ->getQuery();
+    }
+
+    /**
+     * @return Categorie[]
+     * récupère toutes les catégorie trié par place
+     */
+    public function findAllSortedByPlace($place): array
+    {
+        $entityManager = $this->getEntityManager();
+
+        $query = $entityManager->createQuery(
+            'SELECT p
+            FROM App\Entity\Categorie p
+            WHERE p.place > :place
+            ORDER BY p.place ASC'
+        )->setParameter('place', $place);
+
+        // returns an array of Product objects
+        return $query->getResult();
     }
 
     // /**

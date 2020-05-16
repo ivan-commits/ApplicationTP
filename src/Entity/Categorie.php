@@ -57,6 +57,13 @@ class Categorie
      */
     private $name;
 
+    /**
+     * @Groups("picto:read")
+     * @Groups("categorie:read")
+     * @ORM\Column(type="smallint")
+     */
+    private $place;
+
     public function __construct()
     {
         $this->Categorie = new ArrayCollection();
@@ -157,6 +164,18 @@ class Categorie
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getPlace(): ?int
+    {
+        return $this->place;
+    }
+
+    public function setPlace(int $place): self
+    {
+        $this->place = $place;
 
         return $this;
     }

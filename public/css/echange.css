@@ -5,7 +5,7 @@ STYLE GENERAL
 
 body{
   height: 100%;
-  background: rgb(79, 80, 82);
+  background: url(../images/logo/Background.jpg)
 }
 
 li{
@@ -16,20 +16,15 @@ button{
   border: none;
 }
 
-.container{
-  height: 92vh;
-  display: flex;
-  align-items: center;
-}
 .body-content{
   width: 90%;
   margin: 0 auto;
 }
 
 img{
-  width: 100px;
-  height: 100px;
-
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.10);
 }
 
 .carousel{
@@ -49,27 +44,34 @@ img{
 }
 
 
+
 /*
 STYLE SCROLL
 */
 .scroll-img {
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.10);
   width:90%;
   height: 115px;
   overflow: hidden;
   font-size: 0;
   margin: auto;
-  box-shadow:inset 0px 0px 10px rgba(0, 0, 0, 0.795);
 }
 
 .scroll-img ul {
   width: 100%;
-  height: 110px;
+  height: 100%;
   margin: 0;
 }
 .scroll-img ul li {
   display: inline-block;
   margin: 5px 20px;
+}
+.scroll-img li {
+  background: rgb(255, 255, 255);
+  border-radius: 15px;
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
 }
 
 /*
@@ -77,18 +79,23 @@ STYLE BOUTON
 */
 
 .carousel .btn{
-  background: rgba(8, 8, 8, 0.651);
+  background: rgba(255, 255, 255, 0.219);
   width: 100px;
 }
 
 #btn-backward-categorie,#btn-backward-picto{
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 
 #btn-forward-categorie,#btn-forward-picto{
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+
 }
 
 /*
@@ -114,10 +121,10 @@ ZONE DROP
 */
 
 #carousel-drop{
-  background: rgba(8, 8, 8, 0.651);
+  background: rgba(255, 255, 255, 0.10);
   width: 100%;
   height: 100%;
-  border-radius: 5px;
+  border-radius: 50px;
   margin: 20px auto 50px auto;
   padding: 5px 0;
 }
@@ -132,9 +139,9 @@ ZONE DROP
 .drop{
   width: 100px;
   height: 105px;
-  background: rgba(255, 255, 255, 0.966);
-  border-radius: 5px;  
-  box-shadow:inset 0px 0px 5px rgba(0, 0, 0, 0.795);
+  background: rgba(255, 255, 255, 0.658);
+  border-radius: 15px;
+  box-shadow:inset 0px 0px 5px rgba(0, 0, 0, 0.116);
 }
 
 /*
@@ -144,9 +151,9 @@ ZONE PHRASE
 #phrase{
   width: 100%;
   height: 35px;
-  border-radius: 5px;  
+  border-radius: 50px;  
   margin: 0 auto;
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 0.959);
   font-size: 25px;
   text-align: center;
 
@@ -160,8 +167,8 @@ ZONE REMOTE
   margin: 50px auto;
   display: flex;
   justify-content: space-around;
-  background: rgba(0, 0, 0, 0.589);   
-  border-radius: 5px;
+  background: rgba(35, 61, 77, 0.637);   
+  border-radius: 50px;
   padding: 2px 0
 }
 
@@ -177,7 +184,45 @@ color: rgb(255, 255, 255);
 
 
 
+/*
+FOOTER
+*/
+
+footer{
+  width: 100%;
+  background: #080708;
+  text-align: center;
+  flex:1;
+  color:#F2F4F3;
+}
 
 
 
 
+
+
+/*
+NAVBAR
+*/
+
+.navbar-custom ,.navbar{
+  background-color: #080708;
+}
+/* change the brand and text color */
+.navbar-custom ,.navbar .navbar-brand,
+.navbar-custom ,.navbar .navbar-text {
+  color:#F2F4F3;
+}
+/* change the link color */
+.navbar-custom ,.navbar .navbar-nav .nav-link {
+  color:#F2F4F3;
+  font-family: 'Lato', sans-serif;
+}
+/* change the color of active or hovered links */
+.navbar-custom ,.navbar .nav-item.active .nav-link,
+.navbar-custom ,.navbar .nav-item:hover .nav-link {
+  color:#F2F4F3;
+}
+.navbar-custom ,.navbar a:hover{
+  color: rgb(150, 179, 83)
+}

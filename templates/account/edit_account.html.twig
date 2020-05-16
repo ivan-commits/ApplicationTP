@@ -12,21 +12,8 @@
         <div class="container-content">
         
             {{ form_start(form) }}
-                <label fclass="sr-only">Enfant :</label>
-                {{ form_row(form.surname, {'attr':{'placeholder':'Nom'}}) }}
-                {{ form_row(form.firstName, {'attr':{'placeholder':'Prénom'}})}}
-                {{ form_row(form.date_de_naissance)}}
-                <label fclass="sr-only">Parents :</label>
-                {{ form_row(form.firstname_parent1, {'attr':{'placeholder':'Prénom'}}) }}
-                {{ form_row(form.surname_parent1, {'attr':{'placeholder':'Nom'}}) }}
-                {{ form_row(form.firstname_parent2, {'attr':{'placeholder':'Prénom'}}) }}
-                {{ form_row(form.surname_parent2, {'attr':{'placeholder':'Nom'}}) }}
-                <label fclass="sr-only">Orthophoniste :</label>
-                {{ form_row(form.firstname_orthophoniste, {'attr':{'placeholder':'Prénom'}}) }}
-                {{ form_row(form.surname_orthophoniste, {'attr':{'placeholder':'Nom'}}) }}
-                <label fclass="sr-only">Éducateur :</label>
-                {{ form_row(form.firstname_educateur, {'attr':{'placeholder':'Nom'}}) }}
-                {{ form_row(form.surname_educateur, {'attr':{'placeholder':'Prénom'}}) }}
+              
+            {{ form_rest(form)}}
                 <div class="btn-secu">
                     <button class="btn btn-md" type="submit">Modifier</button>
                     <a class="btn btn-md" href="{{ path('app_account') }}">Retour</a>

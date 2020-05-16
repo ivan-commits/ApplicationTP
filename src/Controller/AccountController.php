@@ -3,7 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Component\Security\Core\Security;
-use App\Form\ProfileType;
+use App\Form\AccountUserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -47,7 +47,7 @@ class AccountController extends AbstractController
     public function edit(Request $request, EntityManagerInterface $em)
     {
         $user = $this->security->getUser();
-        $form = $this->createForm(ProfileType::class, $user);
+        $form = $this->createForm(AccountUserType::class, $user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid())
         {

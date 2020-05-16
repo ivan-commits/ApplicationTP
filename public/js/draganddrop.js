@@ -10,7 +10,6 @@ $(function () {
 
     });
 
-
     $(".drop").droppable({
 
         drop: function(event,ui){
@@ -60,6 +59,7 @@ $(function () {
     // Lecture audio de la phrase 
     $("#lecture").click(()=>{
         let vocal = $("#phrase").html();
+       
         if(!vocal){
             return
         }
@@ -73,9 +73,9 @@ $(function () {
         speechSynthesis.speak(speech);
     })
    // Lecture audio mot à mot de la phrase 
-    $("#lectureMot").click((phrase)=>{
+    $("#lectureMot").click(()=>{
         let vocal = $("#phrase").html();
-        if(vocal){
+        if(!vocal){
             return
         }
         vocal = vocal.split(' ');
@@ -87,7 +87,7 @@ $(function () {
             speech.volume = 0.5; // 0 à 1 = volume
             speech.lang = 'fr-FR'; // Language
             // Faire parler
-            speechSynthesis.speak(speech);
+            speechSynthesis.speak(speech)
         }
       
     })
@@ -96,11 +96,6 @@ $(function () {
         $("#phrase").html('');
         $(".drop > li").remove();
     })
-
-
-
-
-    
 
 
 

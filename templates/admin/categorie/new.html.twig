@@ -27,6 +27,7 @@
 {% endblock %}
 
 {% block javascripts %}
+{{parent()}}
         <script>
             $('#categorie_imageFile').on('change',function(){
                 //get the file name

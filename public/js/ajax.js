@@ -49,6 +49,15 @@ function parcoursJSON(jsonObj) {
   }
   $(".categorie").click(function(){
     categorie= $(this).attr('name');
+    //lis le nom de la catégorie au click
+    const speech = new SpeechSynthesisUtterance();
+    speech.text = categorie;
+    speech.pitch = 1; // 0 à 2 = hauteur
+    speech.rate = 1; // 0.5 à 2 = vitesse
+    speech.volume = 0.5; // 0 à 1 = volume
+    speech.lang = 'fr-FR'; // Language
+    // Faire parler
+    speechSynthesis.speak(speech);
     getData1("http://localhost:8000/api/get/pictogrammes");
     getCategorie(categorie);
   });

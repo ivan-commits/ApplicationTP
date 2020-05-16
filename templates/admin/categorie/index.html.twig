@@ -16,12 +16,10 @@
 
         <article class="container-content user">
 
-            <div class="block-pagination">
-                {{ knp_pagination_render(categories)}}
-            </div>
 
             <div class="add">
-                <a class="btn" href="{{ path('admin_categorie_new') }}">Ajouter une catégorie</a>
+                  {{ knp_pagination_render(categories)}}
+                <a class="action" href="{{ path('admin_categorie_new') }}"><i class="fas fa-plus-square"></i> créer</a>
             </div>
             
             {% for message in app.flashes('success') %}
@@ -31,11 +29,12 @@
             {% endfor %}
 
             <div class="table-responsive">
-                <table class="table table-hover text-center">
+                <table class="table table-hover table-striped text-center">
                     <thead>
                         <tr>
-                            <td>Filename</td>
+                            <td>Place</td>
                             <td>Nom</td>
+                            <td>Filename</td>
                             <td>Image</td>
                             <td>Actions</td>
                         </tr>
@@ -44,8 +43,9 @@
                     <tbody>
                     {% for categorie in categories %}
                         <tr>
-                            <td>{{ categorie.filename }}</td>
+                            <td>{{ categorie.place }}</td>
                             <td>{{ categorie.name }}</td>
+                            <td>{{ categorie.filename }}</td>
                             <td><img src="{{ asset('images/categorie/'~categorie.filename) }}" alt=""></td>
                             <td>
                                 <a  id="edit" class="action" href="{{ path('admin_categorie_edit',{id: categorie.id}) }}"><i class="far fa-edit"></i></a>

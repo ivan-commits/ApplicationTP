@@ -31,7 +31,7 @@ class AdminCategorieController extends AbstractController
     public function index(PaginatorInterface $paginator, Request $request)
     {
         $categories = $paginator->paginate(
-            $this->categorieRepository->findAllQuery(),
+            $this->categorieRepository->findAllSortedByPlace(0),
             $request->query->getInt('page',1),
             10
         );
@@ -52,7 +52,7 @@ class AdminCategorieController extends AbstractController
             $categorie = $form->getData();
             $this->em->persist($categorie);
             $this->em->flush();
-            $this->addFlash('success', 'categorie ajouté avec succès');
+            $this->addFlash('success', 'catégorie ajouté avec succès');
             return $this->redirectToRoute('admin_categorie');
         }
         return $this->render('admin/categorie/new.html.twig', [
@@ -65,11 +65,12 @@ class AdminCategorieController extends AbstractController
      * @Route("/admin/categorie/{id}", name="admin_categorie_edit", methods="GET|POST")
      */
     public function edit(categorie $categorie, Request $request){
+        
         $form = $this->createForm(CategorieType::class,$categorie);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $this->em->flush();
-            $this->addFlash('success', 'Categorie modifié avec succès');
+            $this->addFlash('success', 'catégorie modifié avec succès');
             return $this->redirectToRoute('admin_categorie');
         }
         return $this->render('admin/categorie/edit.html.twig', [
@@ -84,7 +85,7 @@ class AdminCategorieController extends AbstractController
         if($this->isCsrfTokenValid('delete' . $categorie->getId(), $request->get('_token'))){
             $this->em->remove($categorie);
             $this->em->flush();
-            $this->addFlash('success', 'Categorie supprimé avec succès');
+            $this->addFlash('success', 'catégorie supprimé avec succès');
         };
 
         return $this->redirectToRoute('admin_categorie');

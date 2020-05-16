@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\UserRepository;
 use App\Entity\User;
-use App\Form\UserType;
+use App\Form\FullUserType;
 use Symfony\Component\HttpFoundation\Request;
 use App\Form\UserRegistrationType;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -71,7 +71,7 @@ class AdminUserController extends AbstractController
      * @Route("/admin/user/{id}", name="admin_user_edit", methods="GET|POST")
      */
     public function edit(User $user, Request $request){
-        $form = $this->createForm(UserType::class,$user);
+        $form = $this->createForm(FullUserType::class,$user);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $this->em->flush();

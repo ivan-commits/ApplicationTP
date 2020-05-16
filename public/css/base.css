@@ -154,13 +154,19 @@ EDITE ACCOUNT
 
 .edit-account{  
     margin: 20px auto;
-    width: 80%
+    width: 50%;
 }
-
 
 .edit-account .btn-secu{  
     display: flex;
     justify-content: space-between;
+}
+.edit-account .form-group{
+    display: flex;
+    flex-direction: column
+}
+.edit-account label {  
+    margin: 10px auto;
 }
 
 .edit-account input{  
@@ -169,7 +175,6 @@ EDITE ACCOUNT
     border-radius: 25px;
     box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.411);
 }
-
 
 .edit-account input:hover{
     transition: 0.2s;

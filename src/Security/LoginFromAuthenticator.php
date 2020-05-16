@@ -36,13 +36,16 @@ class LoginFromAuthenticator extends AbstractFormLoginAuthenticator
         $this->passwordEncoder = $passwordEncoder;
     }
 
-
+    //Ceci est appelé à chaque demande et votre travail consiste à décider si l'authentificateur doit être utilisé pour cette demande
+    //(retour true) ou s'il doit être ignoré (retour false).
     public function supports(Request $request)
-    {
+    { 
         return $request->attributes->get('_route') === 'app_login'
-            && $request->isMethod('POST');
+            && $request->isMethod('POST');   
     }
 
+    //Lit le jeton (ou quelles que soient vos informations "d'authentification") de la demande et la renvoi. 
+    //Ces informations d'identification sont transmises à getUser().
     public function getCredentials(Request $request)
     {
         $credentials =  [
@@ -58,6 +61,8 @@ class LoginFromAuthenticator extends AbstractFormLoginAuthenticator
         return $credentials;
     }
 
+    //L'$credentials argument est la valeur renvoyée par getCredentials(). Votre travail consiste à renvoyer un objet qui implémente UserInterface.
+    //Si vous le faites, alors checkCredentials()sera appelé. Si vous retournez null(ou lancez une exception AuthenticationException ) l'authentification échouera.
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
         $token =  new CsrfToken('authenticate',$credentials['csrf_token']);
@@ -66,7 +71,10 @@ class LoginFromAuthenticator extends AbstractFormLoginAuthenticator
         }
         return $this->userRepository->findOneBy(['email'=>$credentials['email']]);
     }
-
+    //Si getUser()renvoie un objet User qui implémente UserInterface, cette méthode est appelée. 
+    //Le travail consiste à vérifier si les informations d'identification sont correctes. 
+    //Pour un formulaire de connexion, c'est ici qu'on vérifi que le mot de passe est correct pour l'utilisateur.
+    // Pour passer l'authentification, return true. Si false (ou lancez une exception AuthenticationException ), l'authentification échouera.
     public function checkCredentials($credentials, UserInterface $user)
     {
        $credentialsValid =  $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
@@ -87,6 +95,7 @@ class LoginFromAuthenticator extends AbstractFormLoginAuthenticator
         }
         return new RedirectResponse($this->router->generate('app_home'));
     }
+    
     protected function getLoginUrl()
     {
         return $this->router->generate('app_login');
