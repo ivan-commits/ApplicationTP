@@ -16,7 +16,7 @@ class PictogrammeType extends AbstractType
         $builder
             ->add('name')
             ->add('categorie')
-            ->add('imageFile',FileType::class)
+            ->add('imageFile',FileType::class,['required'=>false])
         ;
     }
 

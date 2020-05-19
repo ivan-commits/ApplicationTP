@@ -2,12 +2,12 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\ApiToken;
 use App\Entity\User;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
-class UserFixtures extends BaseFixture
+class UserFixtures extends Fixture
 {
     private $passwordEncoder;
 
@@ -16,34 +16,36 @@ class UserFixtures extends BaseFixture
         $this->passwordEncoder = $passwordEncoder;
     }
 
-    protected function loadData(ObjectManager $manager)
+    public function load(ObjectManager $manager)
     {
-        $this->createMany(10,'main_users',function($i) use ($manager){
+        for($i=0; $i<10; $i++)
+        {
             $user = new User();
-            $user->setEmail(sprintf('spacebar%d@example.com',$i));
-            $user->setFirstName($this->faker->firstName);
-            $user->setSurname('surname test');
-            $user->setPassword($this->passwordEncoder->encodePassword(
-               $user,'engage'
-            ));
-            $apiToken1 = new ApiToken($user);
-            $apiToken2 = new ApiToken($user);
-            $manager->persist($apiToken1);
-            $manager->persist($apiToken2);
-            return $user;
-        });
 
-        $this->createMany(3,'admin_user',function($i){
-            $user = new User();
-            $user->setEmail(sprintf('admin%d@example.com',$i));
-            $user->setFirstName($this->faker->firstName);
-            $user->setRoles(['ROLE_ADMIN']);
-            $user->setPassword($this->passwordEncoder->encodePassword(
-                $user,'engage'
-            ));
-            return $user;
-        });
+            $user->setEmail(sprintf('test%d@example.com',$i))
+            ->setFirstName(sprintf('FirstName%d',$i))
+            ->setSurname(sprintf('Surname%d',$i))
+            ->setDateDeNaissance(new \DateTime())
+            ->setRoles(['ROLE_USER'])
+            ->setSurnameEducateur(sprintf('SurnameEducateur%d',$i))
+            ->setFirstnameEducateur(sprintf('FirstnameEducateur%d',$i))
+            ->setSurnameOrthophoniste(sprintf('FirstnameEducateur%d',$i))
+            ->setFirstnameOrthophoniste(sprintf('FirstnameOrthophoniste%d',$i))
+            ->setSurnameParent1(sprintf('SurnameParent1%d',$i))
+            ->setFirstNameParent1(sprintf('FirstNameParent1%d',$i))
+            ->setSurnameParent2(sprintf('SurnameParent2%d',$i))
+            ->setFirstnameParent2(sprintf('FirstnameParent2%d',$i))
+            ->setEnabled(true)
+            ->setConfirmationResetPassword('')
+            ->setConfirmationToken('')
+            ->setPassword($this->passwordEncoder->encodePassword($user,'testtest'));
+
+            $manager->persist($user);
+          
+        };
+
 
         $manager->flush();
     }
+
 }
