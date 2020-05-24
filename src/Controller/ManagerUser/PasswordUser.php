@@ -12,7 +12,6 @@ use App\Form\ValidateTokenType;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use App\Repository\UserRepository;
 use App\Form\PasswordResetType;
-
 class PasswordUser extends AbstractController{
 
     /**
@@ -92,26 +91,38 @@ class PasswordUser extends AbstractController{
     public function newPassword (Request $request,$token,$username,UserRepository $userRepository,UserPasswordEncoderInterface $passwordEncoder)
     {
         $email = $username;
-        $form = $this->createForm(PasswordResetType::class);
-        $form->handleRequest($request);
+        $user = $userRepository->findOneBy(['email'=>$email]);
 
-        if($form->isSubmitted() && $form->isValid()){
-            $userRepo = $userRepository->findOneBy(['email'=>$email]);
-            $user = $form->getData();
-            $userRepo->setPassword($passwordEncoder->encodePassword(
-                $user,
-                $user->getPassword()
-            ));
-            $userRepo->setConfirmationResetPassword('');
-            $em=$this->getDoctrine()->getManager();
-            $em->persist($userRepo);
-            $em->flush();
-            $this->addFlash('success','Votre mot de passe a bien été modifié');
+        if($email == $user->getEmail() && $token == $user->getConfirmationResetPassword()){
+            
+            $form = $this->createForm(PasswordResetType::class);
+            $form->handleRequest($request);
+
+            if($form->isSubmitted() && $form->isValid()){
+                $userRepo = $userRepository->findOneBy(['email'=>$email]);
+                $user = $form->getData();
+                $userRepo->setPassword($passwordEncoder->encodePassword(
+                    $user,
+                    $user->getPassword()
+                ));
+                $userRepo->setConfirmationResetPassword('');
+                $em=$this->getDoctrine()->getManager();
+                $em->persist($userRepo);
+                $em->flush();
+                $this->addFlash('success','Votre mot de passe a bien été modifié');
+                return $this->redirectToRoute('app_login');
+            }
+
+            return $this->render('security/new_password.html.twig',[
+                'form'=>$form->createView()
+            ]);
+            
+        }else{
+
             return $this->redirectToRoute('app_login');
         }
-        return $this->render('security/new_password.html.twig',[
-            'form'=>$form->createView()
-        ]);
+
+
     }
 
     /**
