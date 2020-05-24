@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\AccountUser;
 
 use Symfony\Component\Security\Core\Security;
 use App\Form\AccountUserType;
@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
  * @package App\Controller
  * @IsGranted("ROLE_USER")
  */
-class AccountController extends AbstractController
+class AccountUser extends AbstractController
 {
 
     private $security;
