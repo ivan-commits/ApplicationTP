@@ -22,12 +22,12 @@
                 <hr>
             </div>
 
-            <input type="email" name="email" value="{{ last_username }}" id="inputEmail" class="form-control mt-3" placeholder="E-mail" required autofocus>
+            <input type="email" name="email" value="{{ last_username }}" class="form-control mt-3" placeholder="E-mail" required autofocus>
 
             
-            <input type="password" name="password" id="inputPassword" class="form-control mt-4" placeholder="Mot de passe" required>
+            <input type="password" name="password" class="form-control mt-4" placeholder="Mot de passe" required>
             
-            <input type="hidden" name="_csrf_token" id="inputPassword" class="form-control" value="{{ csrf_token('authenticate') }}">
+            <input type="hidden" name="_csrf_token" class="form-control" value="{{ csrf_token('authenticate') }}">
 
             <div class="pb-connexion">
                 <a href="{{ path('app_reset_password') }}" class="text-center"><small>Mot de passe oublié</small></a>

@@ -16,16 +16,10 @@
 
         <article class="container-content user">
 
-
-          
-                
-        
-
             <div class="add">
                 {{ knp_pagination_render(pictogrammes)}}
                 <a class="action" href="{{ path('admin_picto_new') }}"><i class="fas fa-plus-square"></i> créer</a>
             </div>
-
 
 
             {% for message in app.flashes('success') %}

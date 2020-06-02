@@ -168,3 +168,32 @@ footer{
     color:#F2F4F3;
 }
 
+
+/*
+Media Queries
+élargit les input du formulaire
+quand la taille de l'écran est inférieur à 900px
+*/
+@media screen and (max-width: 900px) {
+
+    .connexion input{
+        width: 100%;
+        margin: 0 auto;
+        border-radius: 25px;
+        box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.411);
+        text-align: center;
+    }
+
+    .connexion input:hover{
+        transition: 0.2s;
+        width: 85%;
+        margin: 0 auto;
+    }
+    
+    .connexion input:focus{
+        border-color: #cccccc;
+        -webkit-box-shadow: none;
+        box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.377);
+        width: 85%;
+    }
+}

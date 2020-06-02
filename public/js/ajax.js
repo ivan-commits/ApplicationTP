@@ -44,7 +44,7 @@ function parcoursJSON(jsonObj) {
   for(let i=0; i< jsonObj.length;i++){
     let categorie = jsonObj[i]['name'];
     let imageCategorie = jsonObj[i]['filename'];
-    $("#listcategorie").append('<li class="categorie" name="'+categorie+'" ><img src="/images/categorie/'+imageCategorie+'"></a></li>');
+    $("#listcategorie").append('<li class="categorie" name="'+categorie+'" ><img src="/images/categorie/'+imageCategorie+'"></li>');
 
   }
   $(".categorie").click(function(){

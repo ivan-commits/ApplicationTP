@@ -1,17 +1,27 @@
 <?php
-
 namespace App\Controller\Home;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
-class Home extends AbstractController
+/**
+ * @IsGranted("ROLE_USER")
+ */
+class Home implements HomeInterface
 {
     /**
-     * @Route("/", name="app_home")
+     * @param Environment $environment
+     * @return Response
+     * @Route("/", name="app_home", methods={"GET"})
      */
-    public function index()
+    //la fonction __invoke permet d'utiliser la class comme une fonction
+    public function __invoke(Environment $environment)
     {
-        return $this->render('home/index.html.twig');
+        return new Response(
+            $environment->render('home/index.html.twig')
+        );
     }
+ 
 }

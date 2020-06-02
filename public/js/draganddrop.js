@@ -40,7 +40,7 @@ $(function () {
           
                 return phrase;
             }
-
+            //insert la phrase retourné par createPhrasing() dans la div phrase
             function showPhrasing(){
                 let resultat = createPhrasing();
                 let phrase = $("#phrase").html(resultat);
