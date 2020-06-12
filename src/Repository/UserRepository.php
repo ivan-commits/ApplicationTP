@@ -27,6 +27,7 @@ class UserRepository extends ServiceEntityRepository
     {
         return $this->createQueryBuilder('p')
             ->getQuery();
+
     }
 
     // /**

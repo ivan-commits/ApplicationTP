@@ -24,3 +24,8 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
     
+    App\EventListener\AuthentificationListener:
+        tags:
+            - {name: 'kernel.event_listener', event: 'security.interactive_login' }
+
+            

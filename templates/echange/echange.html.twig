@@ -8,7 +8,7 @@
 {% block body %}
 
 
-    <div class="body-content">
+    <div class="body-content container-fluid">
 
             <!--Carousel catégorie-->  
             <div class="carousel">
@@ -31,7 +31,7 @@
                 <button class="btn" id="btn-forward-picto"><i class="fas fa-chevron-right fa-2x"></i></button>
             </div>
             
-            <div id="carousel-drop">
+            <div id="carousel-drop" class="carousel">
                 <ul class="liste-drop">
                     <li id="mot1" class="drop"></li>
                     <li id="mot2" class="drop"></li>
@@ -42,14 +42,16 @@
                 </ul>
             </div>
     
-            <div id="phrase">
-    
+            <div class="block-bottom">
+                <p id="phrase"></p>
             </div>
 
-            <div id="remote">
+            <div class="block-bottom">
+                <div id="remote">
                     <div class="remote" id="refresh"><i class="fas fa-sync-alt fa-2x"></i></div>
                     <div class="remote" id="lecture"> <i class="fas fa-play fa-2x"></i></div>
                     <div class="remote" id="lectureMot"><i class="fas fa-step-forward  fa-2x"></i></div>
+                </div>
             </div>
                 
     </div>          
@@ -59,14 +61,14 @@
 {% endblock %}
 
 {% block javascripts %}
-   
+   {{parent()}}
     <script type="text/javascript"  src="https://code.jquery.com/jquery-1.8.3.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <script src="{{ asset('js/jquery.scrollbox.js') }}"></script>
     <script src="{{ asset('js/jquery.ui.touch-punch.js') }}"></script>
     <script src="{{ asset('js/ajax.js') }}"></script>
     <script src="{{ asset('js/scrollbox.js') }}"></script>
-    <script src="{{ asset('js/draganddrop.js') }}"></script>
+    <script src="{{ asset('js/dragAndDrop.js') }}"></script>
 
 </script>
 

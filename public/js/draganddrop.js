@@ -1,7 +1,5 @@
-
 $(function () {
 
-    
     $(".li-image").draggable({
         //l'élément sera cloné et le clone sera déplacé.
         helper: 'clone',
@@ -9,7 +7,7 @@ $(function () {
         revert: 'invalid'
 
     });
-
+    
     $(".drop").droppable({
 
         drop: function(event,ui){
@@ -50,9 +48,7 @@ $(function () {
             
             showPhrasing();
   
-
         }
-
 
     });
 

@@ -3,25 +3,22 @@
 namespace App\Controller\Echange;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Twig\Environment;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @IsGranted("ROLE_USER")
  */
-class Echange implements EchangeInterface
+class Echange extends AbstractController
 {
     /**
      * @return Response
      * @param Environment $environment
      * @Route("/echange", name="app_echange", methods={"GET"})
      */
-    public function __invoke(Environment $environment)
+    public function index()
     {
-        return new Response(
-            $environment->render('echange/echange.html.twig')
-            );
+        return $this->render('echange/echange.html.twig');
     }
 
 }

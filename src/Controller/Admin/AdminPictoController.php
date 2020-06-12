@@ -32,7 +32,7 @@ class AdminPictoController extends AbstractController
      * @Route("/admin/picto", name="admin_picto")
      */
     public function index(PaginatorInterface $paginator, Request $request)
-    {
+    {   
         $pictogrammes = $paginator->paginate(
             $this->pictogrammeRepository->findAllQuery(),
             $request->query->getInt('page',1),
@@ -52,6 +52,7 @@ class AdminPictoController extends AbstractController
         $form = $this->createForm(PictogrammeType::class,$pictogramme);
 
         $form->handleRequest($request);
+
         if($form->isSubmitted() && $form->isValid()){
             $pictogramme = $form->getData();
             $this->em->persist($pictogramme);

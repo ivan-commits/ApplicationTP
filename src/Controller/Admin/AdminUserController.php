@@ -45,9 +45,9 @@ class AdminUserController extends AbstractController
      * @return void
      */
     public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder){
-        $user = new User();
-        $form = $this->createForm(UserRegistrationType::class,$user);
+        $form = $this->createForm(UserRegistrationType::class);
         $form->handleRequest($request);
+        dd($form);
         if($form->isSubmitted() && $form->isValid()){
             $user = $form->getData();
             $user->setEnabled(true);
@@ -58,7 +58,6 @@ class AdminUserController extends AbstractController
             ));
             $this->em->persist($user);
             $this->em->flush();
-            $this->addFlash('success', 'Utilisateur ajouté avec succès');
             return $this->redirectToRoute('admin_user');
         }
         return $this->render('admin/user/new.html.twig', [

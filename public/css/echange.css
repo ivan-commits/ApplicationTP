@@ -5,7 +5,6 @@ STYLE GENERAL
 
 body,html{
   height: 100vh;
-  background: url(../images/logo/Background.jpg);
   display: flex;
   flex-direction: column
 }
@@ -14,27 +13,36 @@ li{
   list-style: none;
 }
 
-button{
-  border: none;
+ul{
+  padding: 0;
+  margin: 0!important;
 }
 
-.body-content{
-  width: 90%;
-  margin: 0 auto;
-  flex: 30;
+button{
+  border: none;
 }
 
 img{
   width: 100%;
   height: 100%;
   background: rgba(255, 255, 255, 0.10);
+  border-radius: 5px;
+}
+
+.body-content{
+  width: 90%;
+  background: rgb(45, 108, 167);
+  margin: 0 auto;
+  flex: 30;
+  display: flex;
+  flex-direction: column;
 }
 
 .carousel{
   display: flex;
   justify-content: space-between;
-  margin: 50px 0;
-
+  flex: 5;
+  align-items: center;
 }
 
 .carousel i{
@@ -47,7 +55,9 @@ img{
 }
 
 
-
+.body-content .block i{
+display: inline
+}
 /*
 STYLE SCROLL
 */
@@ -57,7 +67,6 @@ STYLE SCROLL
   height: 115px;
   overflow: hidden;
   font-size: 0;
-  margin: auto;
 }
 
 .scroll-img ul {
@@ -69,6 +78,7 @@ STYLE SCROLL
   display: inline-block;
   margin: 5px 20px;
 }
+
 .scroll-img li {
   background: rgb(255, 255, 255);
   border-radius: 15px;
@@ -84,6 +94,7 @@ STYLE BOUTON
 .carousel .btn{
   background: rgba(255, 255, 255, 0.219);
   width: 100px;
+  height: 115px;
 }
 
 #btn-backward-categorie,#btn-backward-picto{
@@ -123,19 +134,13 @@ ZONE PICTOGRAMME
 ZONE DROP
 */
 
-#carousel-drop{
-  background: rgba(255, 255, 255, 0.10);
-  width: 100%;
-  border-radius: 50px;
-  margin: 20px auto 50px auto;
-  padding: 5px 0;
-}
-
 .liste-drop{
   display: flex;
   justify-content: space-around;
-  margin: 3px auto;
-  padding: 0;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.10);
 }
 
 .drop{
@@ -147,44 +152,41 @@ ZONE DROP
 }
 
 /*
-ZONE PHRASE
+ZONE Bottom
 */
+.block-bottom{
+  display: flex;
+  flex:3;
+  align-items: center;
+}
 
 #phrase{
   width: 100%;
   height: 35px;
-  border-radius: 50px;  
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.959);
   font-size: 25px;
   text-align: center;
-
+  border-radius: 50px;  
 }
-
-/*
-ZONE REMOTE
-*/
 
 #remote{
-  margin: 50px auto;
+  background: rgba(35, 61, 77, 0.637);   
   display: flex;
   justify-content: space-around;
-  background: rgba(35, 61, 77, 0.637);   
-  border-radius: 50px;
-  padding: 2px 0
+  width: 100%;
+  border-radius: 50px;  
 }
-
-
 
 .remote {
   padding:8px 10px;
   color: rgba(255, 255, 255, 0.637);
+  display: inline;
 }
+
 .remote:hover {
 color: rgb(255, 255, 255);
 }
-
-
 
 /*
 FOOTER
@@ -197,11 +199,6 @@ footer{
   flex:1;
   color:#F2F4F3;
 }
-
-
-
-
-
 
 /*
 NAVBAR

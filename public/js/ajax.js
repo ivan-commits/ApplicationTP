@@ -60,6 +60,7 @@ function parcoursJSON(jsonObj) {
     speechSynthesis.speak(speech);
     getData1("http://localhost:8000/api/get/pictogrammes");
     getCategorie(categorie);
+    
   });
 
 }
@@ -90,7 +91,7 @@ function getResponse1(){
                   break;
                 case 200:
                   responseData=JSON.parse(myRequest.responseText);
-                  categorie =(getCategorie(categorie))
+                  categorie = getCategorie(categorie);
                    parcoursJSON1(responseData,categorie);
                   
                 break
@@ -106,6 +107,7 @@ function getResponse1(){
 
 //parcours de la réponse name.json
 function parcoursJSON1(jsonObj,categorie) {
+
   //récupère le nombre d'éléments dans listpicto
   let countLi = $("#listpicto > li ").length;
   //si listpicto est vide on boucle sur la réponse et on intègre les éléments
@@ -117,8 +119,16 @@ function parcoursJSON1(jsonObj,categorie) {
         let name = jsonObj[i]['name'];
         let id = jsonObj[i]['id'];
   
-        $("#listpicto").append('<li id="drag'+id+'" class="draggable drag" name="'+name+'" ><img src="/images/pictogramme/'+filename+'"></a>'+
+        $("#listpicto").append('<li id="drag'+id+'" class="li-image drag draggable" name="'+name+'" ><img src="/images/pictogramme/'+filename+'">'+
         '<p class="text-center drag-text">'+name+'</p></li>');
+
+          $(".li-image").draggable({
+            //l'élément sera cloné et le clone sera déplacé.
+            helper: 'clone',
+            //le retour ne se produira que si le draggable n'a pas été déposé sur un droppable
+            revert: 'invalid'
+
+        });
       }
 
     } 
@@ -133,19 +143,23 @@ function parcoursJSON1(jsonObj,categorie) {
         let name = jsonObj[i]['name'];
         let id = jsonObj[i]['id'];
   
-        $("#listpicto").append('<li id="drag'+id+'" class="draggable drag" name="'+name+'" ><img src="/images/pictogramme/'+filename+'"></a>'+
+        $("#listpicto").append('<li id="drag'+id+'" class="li-image drag draggable" name="'+name+'" ><img src="/images/pictogramme/'+filename+'">'+
         '<p class="text-center drag-text">'+name+'</p></li>');
+
+        $(".li-image").draggable({
+          //l'élément sera cloné et le clone sera déplacé.
+          helper: 'clone',
+          //le retour ne se produira que si le draggable n'a pas été déposé sur un droppable
+          revert: 'invalid'
+
+      });
       }
 
     } 
   }
 
-          
-  $(".draggable").draggable({
-  helper: 'clone',
-  revert: 'invalid'
 
-  });
+
 
 
 
