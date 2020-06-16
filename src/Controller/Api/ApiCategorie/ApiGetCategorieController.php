@@ -19,9 +19,6 @@ class ApiGetCategorieController extends AbstractController
     {
         //récupère toutes les catégorie trié par place et retourne une reponse Json
         return  $this->json($categorieRepository->findAllSortedByPlace(0),200,[],['groups'=>'categorie:read']);
-
     }
-
-
 
 }

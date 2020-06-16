@@ -12,8 +12,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class Echange extends AbstractController
 {
     /**
-     * @return Response
-     * @param Environment $environment
      * @Route("/echange", name="app_echange", methods={"GET"})
      */
     public function index()

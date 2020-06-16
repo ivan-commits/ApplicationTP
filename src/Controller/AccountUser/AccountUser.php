@@ -5,28 +5,26 @@ namespace App\Controller\AccountUser;
 use Symfony\Component\Security\Core\Security;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\Response;
-use Twig\Environment;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+
 /**
  * Class AccountController
  * @package App\Controller
  * @IsGranted("ROLE_USER")
  */
-class AccountUser implements AccountUserInterface
+class AccountUser extends AbstractController
 {
 
     /**
      * @Route("/account", name="app_account")
-     * @return \Symfony\Component\HttpFoundation\Response
      * @param Security $security
-     * @param Environment $environment
      */
-    public function __invoke(Security $security, Environment $environment)
+    public function index(Security $security)
     {
         $user = $security->getUser();
-        return new Response($environment->render('account/index.html.twig',[
+        return $this->render('account/index.html.twig',[
             "user"=> $user
-        ]));
+        ]);
     }
 
 

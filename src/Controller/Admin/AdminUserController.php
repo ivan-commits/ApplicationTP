@@ -47,7 +47,6 @@ class AdminUserController extends AbstractController
     public function new(Request $request, UserPasswordEncoderInterface $passwordEncoder){
         $form = $this->createForm(UserRegistrationType::class);
         $form->handleRequest($request);
-        dd($form);
         if($form->isSubmitted() && $form->isValid()){
             $user = $form->getData();
             $user->setEnabled(true);

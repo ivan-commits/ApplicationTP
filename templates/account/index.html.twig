@@ -23,45 +23,45 @@
 
                 <div class="block-profile">
                     <h5>Nom: </h5>
-                    <p>{{ app.user.firstName }}</p>
+                    <p>{{ user.firstName }}</p>
                 </div>
 
                 <div class="block-profile">
                     <h5>Prénom: </h5>
-                    <p>{{ app.user.surname }}</p>
+                    <p>{{ user.surname }}</p>
                 </div>
 
                 <div class="block-profile"> 
                     <h5>Date de naissance: </h5>   
-                    <p> {{ app.user.getDateDeNaissance() | date("m/d/Y")}} </p>
+                    <p> {{ user.getDateDeNaissance() | date("m/d/Y")}} </p>
 
                 </div>
 
                 <div class="block-profile">
                     <h5>Parents: </h5>
 
-                    {% if app.user.getFirstNameParent1 and app.user.getSurnameParent1 %}
-                    <p>{{ app.user.getFirstNameParent1 }} {{ app.user.getSurnameParent1 }}</p>
+                    {% if user.getFirstNameParent1 and user.getSurnameParent1 %}
+                    <p>{{ user.getFirstNameParent1 }} {{ user.getSurnameParent1 }}</p>
                     {% endif %}
 
-                    {% if app.user.getFirstNameParent2 and app.user.getSurnameParent2 %}
-                    <p>et {{ app.user.getFirstNameParent2 }} {{ app.user.getSurnameParent2 }}</p>
+                    {% if user.getFirstNameParent2 and user.getSurnameParent2 %}
+                    <p>et {{ user.getFirstNameParent2 }} {{ user.getSurnameParent2 }}</p>
                     {% endif %}
                 </div>
                 
                 <div class="block-profile">
-                    {% if app.user.getFirstnameOrthophoniste and app.user.getSurnameOrthophoniste and app.user.getFirstnameEducateur and app.user.getSurnameEducateur %}
+                    {% if user.getFirstnameOrthophoniste and user.getSurnameOrthophoniste and user.getFirstnameEducateur and user.getSurnameEducateur %}
                     <h5>Professionnels: </h5></br>
-                    <p>{{ app.user.getSurnameEducateur }} {{ app.user.getFirstnameEducateur }} - Educateur</p></br>
-                    <p>Dr.{{ app.user.getSurnameOrthophoniste }} {{ app.user.getFirstnameOrthophoniste }} - Orthophoniste</p>
+                    <p>{{ user.getSurnameEducateur }} {{ user.getFirstnameEducateur }} - Educateur</p></br>
+                    <p>Dr.{{ user.getSurnameOrthophoniste }} {{ user.getFirstnameOrthophoniste }} - Orthophoniste</p>
              
                     
-                    {% elseif app.user.getFirstnameEducateur and app.user.getSurnameEducateur %}
+                    {% elseif user.getFirstnameEducateur and user.getSurnameEducateur %}
                     <h5>Éducateur: </h5>
-                    <p>{{ app.user.getFirstnameEducateur }} {{ app.user.getSurnameEducateur }}</p>
-                   {% elseif  app.user.getFirstnameOrthophoniste and app.user.getSurnameOrthophoniste %}
+                    <p>{{ user.getFirstnameEducateur }} {{ user.getSurnameEducateur }}</p>
+                   {% elseif  user.getFirstnameOrthophoniste and user.getSurnameOrthophoniste %}
                     <h5>Orthophoniste: </h5>
-                    <p>Dr.{{ app.user.getFirstnameOrthophoniste }} {{ app.user.getSurnameOrthophoniste }}</p>
+                    <p>Dr.{{ user.getFirstnameOrthophoniste }} {{ user.getSurnameOrthophoniste }}</p>
                     {% endif %}
                 </div>
 

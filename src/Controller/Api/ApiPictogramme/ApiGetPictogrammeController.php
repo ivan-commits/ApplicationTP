@@ -16,7 +16,7 @@ class ApiGetPictogrammeController extends AbstractController
      * @Route("/api/get/pictogrammes", name="api_get_index", methods={"GET"})
      * @return void
      */
-    public function __invoke(PictogrammeRepository $pictogrammeRepository)
+    public function index(PictogrammeRepository $pictogrammeRepository)
     {
          return  $this->json($pictogrammeRepository->findAll(),200,[],['groups'=>'picto:read']);
     }
