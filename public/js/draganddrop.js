@@ -1,12 +1,6 @@
 $(function () {
 
-    $(".li-image").draggable({
-        //l'élément sera cloné et le clone sera déplacé.
-        helper: 'clone',
-        //le retour ne se produira que si le draggable n'a pas été déposé sur un droppable
-        revert: 'invalid'
 
-    });
     
     $(".drop").droppable({
 
@@ -14,7 +8,7 @@ $(function () {
             // l'ojbet draggable cloné
             var objet=ui.draggable.clone();
 
-            objet.appendTo($(this)).position( { of: $(this), my: 'center', at: 'center' } ); 
+            objet.appendTo($(this)).position(); 
            
             //retourn la phrase construite
             function createPhrasing(){

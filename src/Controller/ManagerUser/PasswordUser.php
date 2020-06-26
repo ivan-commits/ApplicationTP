@@ -105,8 +105,10 @@ class PasswordUser extends AbstractController{
                     $user,
                     $user->getPassword()
                 ));
+    
                 $userRepo->setConfirmationResetPassword('');
                 $em=$this->getDoctrine()->getManager();
+
                 $em->persist($userRepo);
                 $em->flush();
                 $this->addFlash('success','Votre mot de passe a bien été modifié');
